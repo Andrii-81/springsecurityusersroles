@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create new role</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/role-create}" th:object="${role}" method="post">
+
+
+    <label for="name">Name of role</label>
+    <input type="text" th:field="*{name}" id="name" placeholder="Name of role">
+
+    <input type="submit" value="Create new role">
+
+</form>
+
+</body>
+</html>

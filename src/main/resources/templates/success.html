@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Success</title>
+</head>
+<body>
+
+<div class="container">
+    <h1>Congrats! You did it :)</h1>
+
+    <form action="/auth/logout" method="POST">
+        <button type="submit">Logout</button>
+    </form>
+
+</div>
+
+<div class="container">
+    <p><a href="/roles">See all roles</a></p>
+</div>
+<div class="container">
+    <div class="doctor-button">
+        <a class="button-click doctor-button" th:href="@{/roles}">See all roles</a>
+    </div>
+</div>
+<br/>
+
+<div class="container">
+    <form action="/roles" method="GET">
+        <button style="background: green; color: antiquewhite"  type="submit">See all roles</button>
+    </form>
+</div>
+<br/>
+
+<div class="container">
+    <form action="/users" method="GET">
+        <button style="background: green; color: antiquewhite"  type="submit">See all users</button>
+    </form>
+</div>
+
+</body>
+</html>

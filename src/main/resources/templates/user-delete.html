@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Role edit</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/user-delete}" th:object="${user}" method="post">
+  <label for="id">ID</label>
+  <input readonly type="number" th:field="${user.id}" id="id" placeholder="ID">
+  <br/>
+
+  <label for="email">Email</label>
+  <input readonly type="email" th:field="${user.email}" id="email" placeholder="EMAIL">
+  <br/>
+
+  <label for="firstName">First name</label>
+  <input readonly type="text" th:field="${user.firstName}" id="firstName" placeholder="FIRST_NAME">
+  <br/>
+
+  <label for="lastName">Last name</label>
+  <input readonly type="text" th:field="${user.lastName}" id="lastName" placeholder="LAST_NAME">
+  <br/>
+
+<!--  <select class="form-control" id="status" name="status" >-->
+<!--    <option th:each="status : ${statuses}" th:value="${status}" th:text="${status}"-->
+<!--            th:selected="${status eq user.status}"></option>-->
+<!--  </select>-->
+  <label for="status">Last name</label>
+  <input readonly type="text" th:field="${user.status}" id="status" placeholder="STATUS">
+  <br/>
+
+<!--  <select class="form-control" id="role" name="role">-->
+<!--    <option th:each="role : ${roles}" th:value="${role}"  th:text="${role}"-->
+<!--            th:selected="${role eq user.role}"></option>-->
+
+<!--  </select>-->
+  <label for="role">Last name</label>
+  <input readonly type="text" th:field="${user.role}" id="role" placeholder="ROLE">
+  <br/>
+
+  <input type="submit" value="Delete user">
+
+</form>
+
+</body>
+</html>

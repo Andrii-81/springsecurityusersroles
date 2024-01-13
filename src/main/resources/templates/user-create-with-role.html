@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Create new user</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/user-create-with-role}" th:object="${user}" method="post">
+
+  <label for="email">Email</label>
+  <input required type="email" name="email" id="email" placeholder="enter email">
+  <br/>
+<!--  th:field="*{email}"-->
+  <label for="firstName">First name</label>
+  <input type="text" name="firstName" id="firstName" placeholder="enter first name">
+  <br/>
+<!--  th:field="*{firstName}"-->
+  <label for="lastName">Last name</label>
+  <input type="text" name="lastName" id="lastName" placeholder="enter last name">
+  <br/>
+<!--  th:field="*{LastName}"-->
+
+  <label for="password">Password</label>
+  <input type="password"  name="password" id="password" placeholder="enter password">
+  <br/>
+<!--  th:field="*{password}"-->
+
+<!--  <label for="status">Status</label>-->
+<!--  <input type="text" th:field="*{status}" id="status" placeholder="STATUS">-->
+<!--  <br/>-->
+
+  <select class="form-control" id="status" name="status">
+<!--    <option value="0">select status</option>-->
+    <option th:each="status : ${statuses}" th:value="${status}" th:text="${status}"></option>
+  </select>
+  <br/>
+
+  <!--    <label for="role">Role</label>-->
+  <!--    <input type="text" th:field="*{roles.name}" id="role" placeholder="ROLE">-->
+  <!--    <br/>-->
+  <select class="form-control" id="role" name="role">
+<!--    <option value="0">select role</option>-->
+    <option th:each="role : ${roles}" th:value="${role.name}" th:text="${role.name}"></option>
+  </select>
+  <br/>
+<!--  th:value="${role.id}"-->
+
+  <input type="submit" value="Create new user">
+
+</form>
+
+</body>
+</html>

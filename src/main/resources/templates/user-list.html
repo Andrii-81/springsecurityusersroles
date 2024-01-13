@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>All roles</title>
+</head>
+<body>
+<div th:switch="${users}">
+    <h2 th:case="null">No any users found!!! :(((</h2>
+    <div th:case="*">
+        <h2>All users founded:</h2>
+        <table>
+            <thread>
+                <tr>
+                    <th>Id</th>
+                    <th>Email</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Status</th>
+                    <th>Role</th>
+                </tr>
+            </thread>
+            <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.email}"></td>
+                <td th:text="${user.firstName}"></td>
+                <td th:text="${user.lastName}"></td>
+                <td th:text="${user.status}"></td>
+
+<!--                Вывел в лоб по индексу-->
+<!--                <td th:text="${user.roles[0].name}"></td>-->
+
+<!--                Вывел списком роли юзера-->
+                <td th:each="role : ${user.roles}" th:text="${role.name}"></td>
+
+                <td><a th:href="@{/user-update/{id}(id=${user.id})}">Edit</a></td>
+                <td><a th:href="@{/user-delete/{id}(id=${user.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+
+
+        <br/>
+</div>
+<div>
+        <table>
+            <thread>
+                <tr>
+                    <th>Role as an Object</th>
+                    <th>Role name of User</th>
+                </tr>
+            </thread>
+            <tbody>
+            <tr th:each="user : ${users}">
+<!--                <td>hello </td>-->
+<!--                <td>world</td>-->
+                <td th:text="${user.roles}"></td>
+<!--                <table id="table2">-->
+                    <td th:each="role : ${user.roles}" th:text="${role.name}"></td>
+<!--                </table>-->
+            </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+    <p><a href="/user-create-with-role">Create new user with Role and Status</a></p>
+
+    <p><a href="/api/v1/users/">See all users as REST</a></p>
+
+    <p><a href="/api/v1/roles/">See all roles as REST</a></p>
+
+    <p><a href="/api/v1/developers">See all developers</a></p>
+
+    <p><a href="/user-create">Create new user</a></p>
+    <br/>
+</div>
+
+</body>
+</html>

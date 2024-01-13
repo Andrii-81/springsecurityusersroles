@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Role edit</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/user-update}" th:object="${user}" method="post">
+    <label for="id">ID</label>
+    <input readonly type="number" th:field="${user.id}" id="id" placeholder="ID">
+    <br/>
+
+    <label for="email">Email</label>
+    <input readonly type="email" th:field="${user.email}" id="email" placeholder="EMAIL">
+    <br/>
+
+    <label for="firstName">First name</label>
+    <input type="text" th:field="${user.firstName}" id="firstName" placeholder="FIRST_NAME">
+    <br/>
+
+    <label for="lastName">Last name</label>
+    <input type="text" th:field="${user.lastName}" id="lastName" placeholder="LAST_NAME">
+    <br/>
+
+<!--    <label for="status">Status</label>-->
+<!--    <input type="text" th:field="${user.status}" th:selected="fff" id="status" placeholder="STATUS">-->
+<!--    <br/>-->
+
+<!--    <label for="role">Role</label>-->
+<!--    <input type="text" th:field="${user.roles.name}" id="role" placeholder="ROLE">-->
+<!--    <br/>-->
+
+    <select class="form-control" id="status" name="status" >
+        <!--    <option value="0">select status</option>-->
+<!--        <option th:each="status : ${statuses}" th:value="${status}" th:text="${status}"></option>-->
+        <option th:each="status : ${statuses}" th:value="${status}" th:text="${status}"
+                th:selected="${status eq user.status}"></option>
+    </select>
+    <br/>
+
+    <select class="form-control" id="role" name="role">
+        <!--    <option value="0">select role</option>-->
+<!--        <option th:each="role : ${roles}" th:value="${role.name}" th:text="${role.name}"></option>-->
+        <option th:each="role : ${roles}" th:value="${role}"  th:text="${role}"
+                th:selected="${role eq user.role}"></option>
+
+    </select>
+    <br/>
+
+    <input type="submit" value="Edit user">
+
+</form>
+
+</body>
+</html>
